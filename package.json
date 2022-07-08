@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "lint": "eslint .",
     "deploy": "git push heroku main"
   },
   "author": "Diego Alberto",
@@ -19,6 +20,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "eslint": "^8.19.0",
     "nodemon": "^2.0.19"
   }
 }

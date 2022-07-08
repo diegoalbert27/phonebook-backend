@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
-const uniqueValidator = require('mongoose-unique-validator');
+const uniqueValidator = require('mongoose-unique-validator')
 
 const url = process.env.MONGODB_URI
 
 mongoose.connect(url)
-  .then(result => {
+  .then(() => {
     console.log('connected to MongoDB')
   })
   .catch((error) => {
@@ -21,16 +21,16 @@ const personSchema = new mongoose.Schema({
   number: {
     type: String,
     minlength: 8,
-    required: true, 
+    required: true
   }
 })
 
 personSchema.plugin(uniqueValidator)
 
 personSchema.pre('findOneAndUpdate', function(next) {
-  this.options.runValidators = true;
-  next();
-});
+  this.options.runValidators = true
+  next()
+})
 
 personSchema.set('toJSON', {
   transform: (document, returnedObject) => {
